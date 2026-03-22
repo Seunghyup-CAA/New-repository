@@ -36,9 +36,11 @@
     }
     .hero h1 {
       margin: 1rem 0 0 0;
-      font-size: 2.25rem;
+      font-size: 2rem;
       line-height: 1.1;
       font-weight: 700;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
     }
     .hero .subtitle {
       margin: 0.75rem 0 0 0;
@@ -53,9 +55,7 @@
       color: rgba(255,255,255,0.9);
     }
 
-    .main-wrap {
-      margin-top: -4rem;
-    }
+    .main-wrap { margin-top: -4rem; }
     .main-card {
       border-radius: 28px;
       background: white;
@@ -76,18 +76,18 @@
       border-radius: 1rem;
       box-shadow: 0 10px 28px rgba(0,0,0,0.12);
     }
-    .content h2 {
+    .content h2, .section-title {
       margin: 0;
       font-size: 1.875rem;
       font-weight: 700;
     }
-    .content p {
+    .content p, .body-text {
       margin-top: 1rem;
       font-size: 15px;
       line-height: 2;
       color: #334155;
     }
-    .buttons {
+    .buttons, .buy-buttons {
       margin-top: 1.5rem;
       display: flex;
       flex-direction: column;
@@ -101,15 +101,8 @@
       text-decoration: none;
       font-weight: 700;
     }
-    .btn-dark {
-      background: #0f172a;
-      color: white;
-    }
-    .btn-light {
-      background: white;
-      color: #0f172a;
-      border: 1px solid #cbd5e1;
-    }
+    .btn-dark { background: #0f172a; color: white; }
+    .btn-light { background: white; color: #0f172a; border: 1px solid #cbd5e1; }
 
     .cards {
       margin-top: 1.25rem;
@@ -118,7 +111,7 @@
       gap: 1rem;
       padding-bottom: 2.5rem;
     }
-    .card {
+    .card, .panel, .buy-panel {
       border-radius: 1rem;
       background: white;
       padding: 1.25rem;
@@ -129,47 +122,83 @@
       font-size: 1.25rem;
       font-weight: 700;
     }
-    .card p {
+    .card p, .quote-box, .toc-item, .author-text, .buy-note {
       margin-top: 0.75rem;
       line-height: 2;
       color: #475569;
     }
+    .quote-panel {
+      border-radius: 1rem;
+      background: #0f172a;
+      color: white;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+    }
+    .quote-grid {
+      margin-top: 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .quote-box {
+      margin-top: 0;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      color: rgba(255,255,255,0.9);
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding-bottom: 2.5rem;
+    }
+    .toc-list { margin-top: 1.25rem; }
+    .toc-item {
+      margin-top: 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: #334155;
+    }
+    .toc-num {
+      margin-right: 0.5rem;
+      font-weight: 700;
+      color: #0369a1;
+    }
+    .author-text {
+      margin-top: 1rem;
+    }
+    .buy-wrap { padding-bottom: 4rem; }
+    .buy-panel {
+      border-radius: 28px;
+      text-align: center;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.10);
+    }
+    .buy-note {
+      max-width: 42rem;
+      margin: 1rem auto 0 auto;
+    }
 
     @media (min-width: 640px) {
-      .container {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-      .hero-inner {
-        padding-top: 2.5rem;
-        padding-bottom: 7rem;
-      }
+      .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .hero-inner { padding-top: 2.5rem; padding-bottom: 7rem; }
       .pill { font-size: 12px; }
-      .hero h1 { font-size: 3rem; }
+      .hero h1 { font-size: 3rem; white-space: normal; }
       .hero .subtitle { font-size: 1.875rem; }
       .hero .desc { font-size: 1.125rem; }
       .main-wrap { margin-top: -5rem; }
       .main-card { padding: 1.75rem; }
       .cover { max-width: 280px; }
-      .content h2 { font-size: 2.25rem; }
-      .content p { font-size: 1rem; }
-      .buttons {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-      .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .card.span-2 {
-        grid-column: span 2 / span 2;
-      }
+      .content h2, .section-title { font-size: 2.25rem; }
+      .content p, .body-text { font-size: 1rem; }
+      .buttons, .buy-buttons { flex-direction: row; flex-wrap: wrap; }
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .card.span-2 { grid-column: span 2 / span 2; }
     }
 
     @media (min-width: 1024px) {
-      .container {
-        padding-left: 2rem;
-        padding-right: 2rem;
-      }
+      .container { padding-left: 2rem; padding-right: 2rem; }
       .hero-inner { padding-top: 3rem; }
       .hero h1 { font-size: 3.75rem; }
       .main-grid {
@@ -177,12 +206,11 @@
         gap: 3rem;
       }
       .cover { max-width: 300px; }
-      .cards {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-      .card.span-2 {
-        grid-column: auto;
-      }
+      .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .card.span-2 { grid-column: auto; }
+      .quote-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .detail-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .detail-grid .toc-panel { grid-column: span 2 / span 2; }
     }
   </style>
 </head>
@@ -213,19 +241,10 @@
               </p>
 
               <div class="buttons">
-                <a
-                  href="https://www.amazon.com/dp/B0GTHL9C3D?ref=ppx_yo2ov_dt_b_fed_asin_title"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-dark"
-                >
+                <a href="https://www.amazon.com/dp/B0GTHL9C3D?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
                   Amazon 구매
                 </a>
-
-                <a
-                  href="mailto:seunghyuplee@hotmail.com"
-                  class="btn btn-light"
-                >
+                <a href="mailto:seunghyuplee@hotmail.com" class="btn btn-light">
                   문의하기
                 </a>
               </div>
@@ -255,6 +274,50 @@
             </p>
           </div>
         </div>
+
+        <div class="quote-panel">
+          <h2 class="section-title">책 속의 문장</h2>
+          <div class="quote-grid">
+            <div class="quote-box">“맨해튼은 인간의 내면이 외화된 풍경이다.”</div>
+            <div class="quote-box">“남강과 허드슨, 어머니와 아버지, 슬픔과 희망이 함께 흐르다가 마침내 하나의 강이 된다.”</div>
+            <div class="quote-box">“고통을 감사로 받아들이면 그것이 강이 되고, 그 강이 빛이 된다.”</div>
+          </div>
+        </div>
+
+        <div class="detail-grid" style="margin-top:1.5rem;">
+          <div class="panel toc-panel">
+            <h2 class="section-title">목차</h2>
+            <div class="toc-list">
+              <div class="toc-item"><span class="toc-num">1.</span>1부. 허드슨강은 흐르는데</div>
+              <div class="toc-item"><span class="toc-num">2.</span>2부. 내 생의 유별난 체험</div>
+              <div class="toc-item"><span class="toc-num">3.</span>3부. 고향 남강에 흐르는 추억</div>
+              <div class="toc-item"><span class="toc-num">4.</span>4부. 허드슨강에 겹쳐 보이는 남강</div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2 class="section-title">작가 소개</h2>
+            <div class="author-text">1945년 경남 진주 출생. 1977년 미국으로 이민하여 국제무역 사업을 전개했습니다.</div>
+            <div class="author-text">마라톤 러너이자 월남전 참전용사, 천주교 신자로 살아왔으며 고향과 미국에서의 시간, 인간과 삶에 대한 성찰이 이 책의 바탕을 이룹니다.</div>
+            <div class="author-text">시카고 한인 문인회 및 남강 문인회 회원으로 활동했으며, 전작 『남강에서 맨해튼까지』에 이어 또 하나의 깊은 자전적 성찰을 이 책에 담았습니다.</div>
+          </div>
+        </div>
+
+        <div class="buy-wrap">
+          <div class="buy-panel">
+            <h2 class="section-title">구매 및 문의</h2>
+            <div class="buy-note">아래 버튼을 통해 Amazon 구매 페이지로 이동하거나 이메일로 문의할 수 있습니다.</div>
+            <div class="buy-buttons">
+              <a href="https://www.amazon.com/dp/B0GTHL9C3D?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+                Amazon 구매
+              </a>
+              <a href="mailto:seunghyuplee@hotmail.com" class="btn btn-light">
+                문의하기
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   </div>
