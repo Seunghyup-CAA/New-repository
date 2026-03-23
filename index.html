@@ -1,9 +1,672 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Mystical River</title></head>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>신비스러운 나의 강들 | My Mystical River</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    .page { min-height: 100vh; }
+    .lang-toggle {
+      position: fixed;
+      right: 16px;
+      top: 16px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+    }
+    .lang-btn {
+      border-radius: 6px;
+      padding: 7px 12px;
+      border: 1px solid #d1d5db;
+      background: white;
+      color: #111827;
+      cursor: pointer;
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-weight: 700;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .lang-btn.active {
+      background: black;
+      color: white;
+      border-color: black;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0f4c5c, #137b8d, #0f4c5c);
+      color: white;
+    }
+    .container {
+      max-width: 1152px;
+      margin: 0 auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .hero-inner {
+      padding-top: 32px;
+      padding-bottom: 96px;
+    }
+    .pill {
+      display: inline-flex;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 4px 12px;
+      font-size: 11px;
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    .brand {
+      margin-top: 16px;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      font-variant: small-caps;
+      text-transform: lowercase;
+      color: #e7d9a8;
+    }
+    h1 {
+      margin: 4px 0 0 0;
+      font-size: 2rem;
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    h1.en { letter-spacing: -0.02em; }
+    .subtitle {
+      margin: 12px 0 0 0;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+    .subtitle.en {
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .hero-desc {
+      margin: 16px 0 0 0;
+      max-width: 42rem;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.9);
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    .byline {
+      margin-top: 12px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.08em;
+      display: none;
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    .divider {
+      height: 24px;
+      background: linear-gradient(to bottom, transparent, #f8fafc);
+      box-shadow: 0 10px 20px -10px rgba(0,0,0,0.25);
+    }
+    .event-section {
+      margin-top: 16px;
+      padding: 0 16px;
+    }
+    .event-box {
+      max-width: 1152px;
+      margin: 0 auto;
+      border-radius: 16px;
+      border: 1px solid #e7d9a8;
+      background: #fff8e6;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .event-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .event-label {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #b89f5b;
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    .event-title {
+      margin-top: 4px;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .event-date, .event-desc {
+      line-height: 1.75;
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    .event-date { color: #334155; margin-top: 8px; }
+    .event-desc { color: #475569; margin-top: 4px; }
+    .event-contact {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .square-mail {
+      display: inline-flex;
+      height: 72px;
+      width: 72px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px solid #e7d9a8;
+      background: white;
+      padding: 8px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #0f4c5c;
+      text-decoration: none;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    .square-mail:hover { background: #fff3cc; }
+    .main-section {
+      margin-top: 24px;
+      padding: 0 16px;
+    }
+    .main-card {
+      max-width: 1152px;
+      margin: 0 auto;
+      border-radius: 28px;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.10);
+    }
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .cover-box { text-align: center; }
+    .cover {
+      display: inline-block;
+      width: 100%;
+      max-width: 240px;
+      border-radius: 16px;
+      box-shadow: 0 35px 40px -15px rgba(0,0,0,0.35);
+    }
+    h2, h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+    }
+    .body-copy, .card p, .quote-box, .toc-item, .author-text, .buy-note, .detail-copy {
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 2;
+    }
+    .body-copy {
+      margin-top: 16px;
+      font-size: 15px;
+      color: #334155;
+    }
+    details {
+      margin-top: 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      background: #f8fafc;
+      padding: 16px;
+    }
+    summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      color: #0f172a;
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    .detail-copy p {
+      margin: 12px 0 0 0;
+      color: #475569;
+    }
+    .btn-row {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn {
+      display: block;
+      border-radius: 12px;
+      padding: 12px 20px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    .btn-dark { background: #0f172a; color: white; }
+    .btn-light { background: white; color: #0f172a; border: 1px solid #cbd5e1; }
+
+    .cards {
+      max-width: 1152px;
+      margin: 20px auto 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding-bottom: 40px;
+    }
+    .card, .panel, .buy-panel {
+      border-radius: 16px;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+    }
+    .card h3 { font-size: 1.25rem; font-weight: 700; }
+    .card p, .author-text, .buy-note, .toc-item {
+      margin-top: 12px;
+      color: #475569;
+    }
+
+    .quote-panel {
+      max-width: 1152px;
+      margin: 0 auto;
+      border-radius: 16px;
+      background: #0f172a;
+      color: white;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+    }
+    .quote-grid {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .quote-box {
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 20px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .detail-grid {
+      max-width: 1152px;
+      margin: 24px auto 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding-bottom: 40px;
+    }
+    .toc-list { margin-top: 20px; }
+    .toc-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: #334155;
+      margin-top: 0;
+    }
+
+    .buy-wrap {
+      max-width: 1152px;
+      margin: 0 auto;
+      padding-bottom: 64px;
+    }
+    .buy-panel {
+      border-radius: 28px;
+      text-align: center;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.10);
+    }
+    .buy-note {
+      max-width: 42rem;
+      margin: 16px auto 0 auto;
+      color: #475569;
+    }
+
+    @media (min-width: 640px) {
+      .container { padding-left: 24px; padding-right: 24px; }
+      .hero-inner { padding-top: 40px; padding-bottom: 112px; }
+      .pill { font-size: 12px; }
+      .brand { font-size: 1.25rem; }
+      h1 { font-size: 3rem; white-space: normal; }
+      .subtitle { font-size: 1.5rem; }
+      .hero-desc { font-size: 1.125rem; }
+      .event-section, .main-section { padding: 0 24px; }
+      .event-section { margin-top: 24px; }
+      .event-flex {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .main-section { margin-top: 40px; }
+      .main-card { padding: 28px; }
+      .cover { max-width: 280px; }
+      h2 { font-size: 2.25rem; }
+      .body-copy { font-size: 1rem; }
+      .btn-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .card.span-2 { grid-column: span 2 / span 2; }
+    }
+
+    @media (min-width: 1024px) {
+      .container { padding-left: 32px; padding-right: 32px; }
+      .hero-inner { padding-top: 48px; }
+      h1 { font-size: 3.75rem; }
+      .subtitle { font-size: 1.75rem; }
+      .event-section, .main-section { padding: 0 32px; }
+      .main-grid {
+        grid-template-columns: 320px minmax(0, 1fr);
+        gap: 48px;
+      }
+      .cover { max-width: 300px; }
+      .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .card.span-2 { grid-column: auto; }
+      .quote-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .detail-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .toc-panel { grid-column: span 2 / span 2; }
+    }
+  </style>
+</head>
 <body>
-<h1>Use React deployment version</h1>
-<p>This file is not required if using Vercel + React.</p>
+  <div class="page">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btnKo" onclick="setLang('ko')">KOR</button>
+      <button class="lang-btn" id="btnEn" onclick="setLang('en')">ENG</button>
+    </div>
+
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="pill" id="badge"></div>
+        <div class="brand" id="brand"></div>
+        <h1 id="title"></h1>
+        <p class="subtitle" id="subtitle"></p>
+        <p class="hero-desc" id="heroDesc"></p>
+        <div class="byline" id="byline">by Soon Wan Hong</div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="event-section">
+      <div class="event-box">
+        <div class="event-flex">
+          <div>
+            <div class="event-label" id="eventLabel"></div>
+            <div class="event-title" id="eventTitle"></div>
+            <div class="event-date" id="eventDate"></div>
+            <div class="event-desc" id="eventDesc"></div>
+          </div>
+          <div class="event-contact">
+            <a href="mailto:seunghyuplee@hotmail.com" class="square-mail"><span id="eventBtn1"></span><br><span id="eventBtn2"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-section">
+      <div class="main-card">
+        <div class="main-grid">
+          <div class="cover-box">
+            <img id="cover" src="cover.png" alt="" class="cover" />
+          </div>
+          <div>
+            <h2 id="aboutTitle"></h2>
+            <p class="body-copy" id="aboutShort"></p>
+
+            <details>
+              <summary id="moreLabel"></summary>
+              <div class="detail-copy">
+                <p id="aboutMore1"></p>
+                <p id="aboutMore2"></p>
+                <p id="aboutMore3"></p>
+              </div>
+            </details>
+
+            <div class="btn-row">
+              <a id="buyTop" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-dark"></a>
+              <a id="contactTop" href="mailto:seunghyuplee@hotmail.com" class="btn btn-light"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3 id="card1t"></h3>
+          <p id="card1d"></p>
+        </div>
+        <div class="card">
+          <h3 id="card2t"></h3>
+          <p id="card2d"></p>
+        </div>
+        <div class="card span-2">
+          <h3 id="card3t"></h3>
+          <p id="card3d"></p>
+        </div>
+      </div>
+
+      <div class="quote-panel">
+        <h2 id="quotesTitle"></h2>
+        <div class="quote-grid">
+          <div class="quote-box" id="q1"></div>
+          <div class="quote-box" id="q2"></div>
+          <div class="quote-box" id="q3"></div>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="panel toc-panel">
+          <h2 id="tocTitle"></h2>
+          <div class="toc-list" id="tocList"></div>
+        </div>
+        <div class="panel">
+          <h2 id="authorTitle"></h2>
+          <div class="author-text" id="author1"></div>
+          <div class="author-text" id="author2"></div>
+          <div class="author-text" id="author3"></div>
+
+          <details>
+            <summary id="authorMoreLabel"></summary>
+            <div class="detail-copy">
+              <p id="authorMore1"></p>
+              <p id="authorMore2"></p>
+              <p id="authorMore3"></p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="buy-wrap">
+        <div class="buy-panel">
+          <h2 id="buySectionTitle"></h2>
+          <div class="buy-note" id="buyDesc"></div>
+          <div class="btn-row" style="justify-content:center;">
+            <a id="buyBottom" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-dark"></a>
+            <a id="contactBottom" href="mailto:seunghyuplee@hotmail.com" class="btn btn-light"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const T = {
+      ko: {
+        badge: "홍순완 자전에세이",
+        brand: "my mystical river",
+        title: "신비스러운 나의 강들",
+        subtitle: "남강에서 허드슨강까지",
+        heroDesc: "삶과 기억, 고통과 감사가 하나의 흐름으로 이어지는 자전에세이",
+        eventLabel: "📢 출판기념회 안내",
+        eventTitle: "『신비스러운 나의 강들』 출판기념회",
+        eventDate: "2026년 4월 12일",
+        eventDesc: "소중한 분들을 모시고 출판기념회를 개최합니다. 함께 자리해 주셔서 이 의미 있는 시간을 나누어 주시기 바랍니다.",
+        eventBtn1: "이메일로",
+        eventBtn2: "문의하기",
+        aboutTitle: "책 소개",
+        aboutShort: "병상에서 시작된 기록이 한 인간의 전 생애를 돌아보게 하는 자전에세이입니다. 고향과 이민의 삶, 가족과 신앙, 기억과 죽음, 슬픔과 감사가 하나의 흐름 안에서 만납니다.",
+        more: "자세히 보기",
+        aboutMore1: "이 책은 단순한 투병 기록에 머물지 않고, 병상에서 다시 바라본 삶의 의미를 따라 고향 진주와 미국에서의 세월, 가족과 신앙, 인간에 대한 기억을 함께 엮어 갑니다.",
+        aboutMore2: "남강과 허드슨강이라는 두 강의 이미지는 작가의 내면과 생애를 잇는 상징으로 작용하며, 개인의 체험을 넘어 한 시대를 살아낸 인간의 시간과 역사를 조용히 비춥니다.",
+        aboutMore3: "독자는 이 책을 통해 한 사람의 자전적 서사를 읽는 동시에, 병상에서 더욱 또렷해진 감사와 성찰, 그리고 삶을 끝까지 품으려는 마음을 만나게 됩니다.",
+        buy: "Amazon 구매",
+        contact: "문의하기",
+        card1t: "두 강이 만나는 자리에서",
+        card1d: "남강과 허드슨강, 고향과 이민의 삶, 병상에서의 성찰과 신앙의 기록이 한 권의 에세이로 흐릅니다.",
+        card2t: "투병을 넘어 삶 전체를 돌아보는 책",
+        card2d: "맨해튼 재활원에서 시작된 기록은 가족, 친구, 기억, 죽음, 사랑, 감사에 대한 깊은 묵상으로 확장됩니다.",
+        card3t: "한 인간의 시간과 역사",
+        card3d: "1945년 진주에서 시작해 미국 이민, 사업, 마라톤, 신앙, 문학 활동으로 이어진 작가의 여정을 담았습니다.",
+        quotesTitle: "책 속의 문장",
+        q1: "“맨해튼은 인간의 내면이 외화된 풍경이다.”",
+        q2: "“남강과 허드슨, 어머니와 아버지, 슬픔과 희망이 함께 흐르다가 마침내 하나의 강이 된다.”",
+        q3: "“고통을 감사로 받아들이면 그것이 강이 되고, 그 강이 빛이 된다.”",
+        tocTitle: "목차",
+        tocItems: ["작가의 말", "프롤로그", "1부. 허드슨강은 흐르는데", "2부. 내 생의 유별난 체험", "3부. 이윽고 보내는 편지", "4부. 진주, 그리고 맨해튼", "애필로그"],
+        authorTitle: "작가 소개",
+        author1: "1945년 경남 진주 출생. 1977년 미국으로 이민하여 국제무역 사업을 전개했습니다.",
+        author2: "마라톤 러너이자 월남전 참전용사, 천주교 신자로 살아왔으며 고향과 미국에서의 시간, 인간과 삶에 대한 성찰이 이 책의 바탕을 이룹니다.",
+        author3: "시카고 한인 문인회 및 남강 문인회 회원으로 활동했으며, 전작 『남강에서 맨해튼까지』에 이어 또 하나의 깊은 자전적 성찰을 이 책에 담았습니다.",
+        authorMore1: "작가는 고향 진주에서의 기억과 미국 이민 이후의 삶을 함께 품고 살아왔으며, 사업과 신앙, 전쟁의 기억과 마라톤의 시간까지 스스로의 생애를 폭넓게 통과해 왔습니다.",
+        authorMore2: "이러한 경험은 단순한 이력의 나열이 아니라, 삶을 오래 견디고 깊이 성찰한 사람만이 가질 수 있는 문장과 시선으로 이 책에 배어 있습니다.",
+        authorMore3: "『신비스러운 나의 강들』은 작가 개인의 회고를 넘어, 한 인간이 지나온 시간과 역사, 그리고 끝내 붙들고 있는 감사의 태도를 보여주는 작품입니다.",
+        buySectionTitle: "구매 및 문의",
+        buyDesc: "아래 버튼을 통해 Amazon 구매 페이지로 이동하거나 이메일로 문의할 수 있습니다."
+      },
+      en: {
+        badge: "Autobiographical Memoir",
+        brand: "my mystical river",
+        title: "My Mystical River",
+        subtitle: "From the Nam River to the Hudson",
+        heroDesc: "A deeply reflective memoir where life, memory, suffering, and gratitude flow together as one continuous journey.",
+        eventLabel: "📢 Book Launch Event",
+        eventTitle: "My Mystical River Book Launch",
+        eventDate: "April 12, 2026",
+        eventDesc: "You are warmly invited to join this special book launch gathering. We would be honored to share this meaningful occasion with you.",
+        eventBtn1: "Contact by",
+        eventBtn2: "Email",
+        aboutTitle: "About the Book",
+        aboutShort: "This memoir, begun during a time of illness, reflects on an entire lifetime of experiences, memories, and meaning. It brings together homeland and immigration, family and faith, memory and mortality in one continuous flow.",
+        more: "Read More",
+        aboutMore1: "This book does not remain only a record of illness. It expands into a meditation on life itself, tracing the author's years in Jinju and America, along with memories of family, faith, and the human heart.",
+        aboutMore2: "The Nam River and the Hudson serve as twin symbolic currents that connect inner life and lived history, turning personal experience into a quiet reflection on an entire era.",
+        aboutMore3: "Through this memoir, readers encounter not only one person's autobiographical story, but also a clearer gratitude, deepened reflection, and a spirit that continues to embrace life to the end.",
+        buy: "Buy on Amazon",
+        contact: "Contact",
+        card1t: "Where Two Rivers Meet",
+        card1d: "The Nam River and the Hudson, homeland and immigrant life, spiritual reflection and the record of illness all flow together in a single memoir.",
+        card2t: "A Book Beyond Illness",
+        card2d: "What began in a Manhattan rehabilitation room expands into a profound meditation on family, friendship, memory, death, love, and gratitude.",
+        card3t: "One Life Through Time and History",
+        card3d: "Beginning in Jinju in 1945, the book traces a life shaped by immigration, business, marathon running, faith, and literary activity.",
+        quotesTitle: "Lines from the Book",
+        q1: "“Manhattan is a landscape in which the human interior has been made visible.”",
+        q2: "“The Nam River and the Hudson, mother and father, sorrow and hope flow together until at last they become a single river.”",
+        q3: "“When suffering is received with gratitude, it becomes a river, and that river becomes light.”",
+        tocTitle: "Contents",
+        tocItems: ["Author's Note", "Prologue", "Part I. The Hudson Keeps Flowing", "Part II. The Unusual Experiences of My Life", "Part III. Letters Sent at Last", "Part IV. Jinju, and Manhattan", "Epilogue"],
+        authorTitle: "About the Author",
+        author1: "Born in Jinju, Korea, in 1945, Soon Wan Hong immigrated to the United States in 1977 and went on to build a career in international trade.",
+        author2: "A marathon runner, Vietnam War veteran, and Catholic believer, he has lived with a deep awareness of homeland, America, faith, and the meaning of human life.",
+        author3: "He has been active in Korean literary circles in Chicago and the Nam River Writers Association, and this book continues the autobiographical reflection begun in his earlier work.",
+        authorMore1: "Holding together memories of Jinju and the years after immigration, the author has carried a wide span of experience: business, faith, war memories, and the discipline of marathon running.",
+        authorMore2: "These experiences are not presented merely as biography, but as the foundation of a voice shaped by endurance, reflection, and a long view of life.",
+        authorMore3: "My Mystical River is more than a memoir. It is a record of one human life moving through time, history, and gratitude.",
+        buySectionTitle: "Purchase & Contact",
+        buyDesc: "Use the buttons below to visit the Amazon page for the English edition or get in touch by email."
+      }
+    };
+
+    const AMAZON = {
+      ko: "https://www.amazon.com/dp/B0GTHL9C3D?ref=ppx_yo2ov_dt_b_fed_asin_title",
+      en: "https://www.amazon.com/dp/B0GR1Q2B2Z"
+    };
+
+    function setLang(lang) {
+      const t = T[lang];
+      document.documentElement.lang = lang;
+      document.getElementById('btnKo').classList.toggle('active', lang === 'ko');
+      document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+
+      document.getElementById('badge').textContent = t.badge;
+      const brand = document.getElementById('brand');
+      brand.textContent = t.brand;
+      brand.style.display = lang === 'ko' ? 'block' : 'none';
+
+      const title = document.getElementById('title');
+      title.textContent = t.title;
+      title.classList.toggle('en', lang === 'en');
+
+      const subtitle = document.getElementById('subtitle');
+      subtitle.textContent = t.subtitle;
+      subtitle.classList.toggle('en', lang === 'en');
+
+      document.getElementById('heroDesc').textContent = t.heroDesc;
+      document.getElementById('byline').style.display = lang === 'en' ? 'block' : 'none';
+
+      document.getElementById('eventLabel').textContent = t.eventLabel;
+      document.getElementById('eventTitle').textContent = t.eventTitle;
+      document.getElementById('eventDate').textContent = t.eventDate;
+      document.getElementById('eventDesc').textContent = t.eventDesc;
+      document.getElementById('eventBtn1').textContent = t.eventBtn1;
+      document.getElementById('eventBtn2').textContent = t.eventBtn2;
+
+      const cover = document.getElementById('cover');
+      cover.src = lang === 'ko' ? 'cover.png' : 'cover_en.png';
+      cover.alt = t.title;
+
+      document.getElementById('aboutTitle').textContent = t.aboutTitle;
+      document.getElementById('aboutShort').textContent = t.aboutShort;
+      document.getElementById('moreLabel').textContent = t.more;
+      document.getElementById('aboutMore1').textContent = t.aboutMore1;
+      document.getElementById('aboutMore2').textContent = t.aboutMore2;
+      document.getElementById('aboutMore3').textContent = t.aboutMore3;
+      document.getElementById('buyTop').textContent = t.buy;
+      document.getElementById('buyTop').href = AMAZON[lang];
+      document.getElementById('contactTop').textContent = t.contact;
+
+      document.getElementById('card1t').textContent = t.card1t;
+      document.getElementById('card1d').textContent = t.card1d;
+      document.getElementById('card2t').textContent = t.card2t;
+      document.getElementById('card2d').textContent = t.card2d;
+      document.getElementById('card3t').textContent = t.card3t;
+      document.getElementById('card3d').textContent = t.card3d;
+
+      document.getElementById('quotesTitle').textContent = t.quotesTitle;
+      document.getElementById('q1').textContent = t.q1;
+      document.getElementById('q2').textContent = t.q2;
+      document.getElementById('q3').textContent = t.q3;
+
+      document.getElementById('tocTitle').textContent = t.tocTitle;
+      const tocList = document.getElementById('tocList');
+      tocList.innerHTML = '';
+      t.tocItems.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'toc-item';
+        div.textContent = item;
+        tocList.appendChild(div);
+      });
+
+      document.getElementById('authorTitle').textContent = t.authorTitle;
+      document.getElementById('author1').textContent = t.author1;
+      document.getElementById('author2').textContent = t.author2;
+      document.getElementById('author3').textContent = t.author3;
+      document.getElementById('authorMoreLabel').textContent = t.more;
+      document.getElementById('authorMore1').textContent = t.authorMore1;
+      document.getElementById('authorMore2').textContent = t.authorMore2;
+      document.getElementById('authorMore3').textContent = t.authorMore3;
+
+      document.getElementById('buySectionTitle').textContent = t.buySectionTitle;
+      document.getElementById('buyDesc').textContent = t.buyDesc;
+      document.getElementById('buyBottom').textContent = t.buy;
+      document.getElementById('buyBottom').href = AMAZON[lang];
+      document.getElementById('contactBottom').textContent = t.contact;
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      setLang('ko');
+    });
+  </script>
 </body>
 </html>
