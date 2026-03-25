@@ -1,9 +1,11 @@
-[적용 방법]
+현재 만족하는 상태 기준 프로젝트 ZIP
 
-1. 이 App.tsx를 프로젝트에 덮어쓰기
-2. 아래 파일을 public 폴더에 업로드
-   - cover.png
-   - cover_en.png
-   - Soon Hong 1.png
+실행 방법
+1. 압축 해제
+2. npm install
+3. npm run dev
 
-3. 저장 → 자동 배포
+이미지 파일 포함
+- public/cover.png
+- public/cover_en.png
+- public/Soon Hong 1.png
