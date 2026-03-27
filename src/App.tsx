@@ -91,11 +91,11 @@ const KO: Content = {
 
 const EN: Content = {
   badge: "Autobiographical Memoir",
-  title: "My Mystical River",
+  title: "My Mystical Rivers",
   subtitle: "From the Nam River to the Hudson",
   hero: "A deeply reflective memoir where life, memory, suffering, and gratitude flow together as one continuous journey.",
   eventLabel: "📢 Book Launch Event",
-  eventTitle: "My Mystical River Book Launch",
+  eventTitle: "My Mystical Rivers Book Launch",
   eventDate: "",
   eventDesc:
     "We are planning to hold a special book launch event and warmly invite you to join us. We would be honored to share this meaningful occasion with you.",
@@ -104,7 +104,7 @@ const EN: Content = {
   aboutShort:
     "This memoir, begun during a time of illness, reflects on an entire lifetime of experiences, memories, and meaning. It brings together homeland and immigration, family and faith, memory and mortality in one continuous flow.",
   aboutLong: [
-    "My Mystical Rivers is a memoir written from a Manhattan rehabilitation center by an eighty-year-old Korean immigrant facing lung cancer. Across four parts—letters to family and friends, meditations on faith and mortality, portraits of the extraordinary people he meets in the ward, and essays that weave together his hometown of Jinju, South Korea, and his adopted life in America—Hong Soon-wan traces the arc of a life shaped by two rivers: the Nam, which cradles the ancient city of Jinju, and the Hudson, which flows past his hospital window.",
+    "My Mystical Riverss is a memoir written from a Manhattan rehabilitation center by an eighty-year-old Korean immigrant facing lung cancer. Across four parts—letters to family and friends, meditations on faith and mortality, portraits of the extraordinary people he meets in the ward, and essays that weave together his hometown of Jinju, South Korea, and his adopted life in America—Hong Soon-wan traces the arc of a life shaped by two rivers: the Nam, which cradles the ancient city of Jinju, and the Hudson, which flows past his hospital window.",
     "What begins as a record of illness becomes something far larger. A ninety-three-year-old blind violinist, a world-class dancer from Juilliard, a Harlem-born aide who sings hymns in the hallway—each encounter in the ward opens into a reflection on what it means to be human. The author's letters to his wife, written at two in the morning after chemotherapy, are at once practical and devastatingly tender. His return to Jinju for a half-marathon along the Nam River, his pilgrimage to family graves, and his final decision about where he wishes to be buried give the book the weight of a life honestly examined.",
     "Running through it all is a single, luminous insight: that suffering, if received with gratitude, becomes a river—and that river becomes light. The Nam and the Hudson, mother and father, sorrow and hope, flow together in these pages until they are no longer two rivers but one.",
   ],
@@ -127,7 +127,7 @@ const EN: Content = {
   authorLong: [
     "Hong Soon-wan was born in 1945 in Jinju, South Korea. He emigrated to the United States in 1977 and built a career in international trade in Chicago.",
     "A marathon runner with twenty-five races behind him, a Vietnam War veteran, and a devoted Catholic, he lives in New Jersey.",
-    "He is a member of the Chicago Korean Literary Society and the Namgang Literary Society, and the founder of Swanvive LLC. My Mystical Rivers is his second book, following Namgang to Manhattan.",
+    "He is a member of the Chicago Korean Literary Society and the Namgang Literary Society, and the founder of Swanvive LLC. My Mystical Riverss is his second book, following Namgang to Manhattan.",
   ],
   moreAuthor: "Learn More",
   footerTitle: "Purchase & Contact",
@@ -172,7 +172,7 @@ export default function MyMysticalRiverWebsite() {
               className="mt-4 text-lg tracking-[0.12em] text-[#e7d9a8]"
               style={{ fontVariant: "small-caps", textTransform: "lowercase" }}
             >
-              my mystical river
+              my mystical rivers
             </div>
           )}
           <h1 className="mt-2 text-3xl font-bold md:text-5xl">{t.title}</h1>
