@@ -172,7 +172,7 @@ export default function MyMysticalRiverWebsite() {
               className="mt-4 text-lg tracking-[0.12em] text-[#e7d9a8]"
               style={{ fontVariant: "small-caps", textTransform: "lowercase" }}
             >
-              my mystical rivers
+              my mystical river
             </div>
           )}
           <h1 className="mt-2 text-3xl font-bold md:text-5xl">{t.title}</h1>
