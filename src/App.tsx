@@ -135,7 +135,7 @@ const EN: Content = {
 };
 
 export default function MyMysticalRiverWebsite() {
-  const [lang, setLang] = useState<"ko" | "en">("ko");
+  const [lang, setLang] = useState<"ko" | "en">("en");
   const [koSrc, setKoSrc] = useState(coverKo);
   const [enSrc, setEnSrc] = useState(coverEn);
   const [authorSrc, setAuthorSrc] = useState(authorImg);
