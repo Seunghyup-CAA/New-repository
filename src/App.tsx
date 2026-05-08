@@ -185,7 +185,7 @@ export default function MyMysticalRiverWebsite() {
       <section className="px-6 py-6 md:px-10">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 rounded-2xl border border-[#e7d9a8] bg-[#fff8e6] p-5 md:flex-row md:items-center">
           <div>
-            <div className="text-sm font-semibold tracking-wide text-[#b89f5b]">{t.eventLabel}</div>
+            <div className="text-4xl font-bold tracking-wide text-teal-800">{t.eventLabel}</div>
             <div className="mt-1 text-xl font-bold">{t.eventTitle}</div>
             {t.eventDate && <div className="mt-2 text-slate-700 whitespace-pre-line">{t.eventDate}</div>}
             <div className="mt-1 leading-7 text-slate-600">{t.eventDesc}</div>
