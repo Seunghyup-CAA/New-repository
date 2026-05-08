@@ -51,7 +51,7 @@ const KO: Content = {
   hero: "삶과 기억, 고통과 감사가 하나의 흐름으로 이어지는 자전에세이",
   eventLabel: "📢 출판기념회 안내",
   eventTitle: "『신비로운 강들』 출판기념회",
-  eventDate: "일시: 2025년 5월 23일 (토) 낮 12시\n장소: 디모스연회장 (플러싱)\n주소: 150-24 Northern Blvd, Flushing, NY 11354\n전화: 212-871-6781",
+  eventDate: "일시: 2026년 5월 23일 (토) 낮 12시\n장소: 디모스연회장 (플러싱)\n주소: 150-24 Northern Blvd, Flushing, NY 11354\n전화: 212-871-6781",
   eventDesc:
     "소중한 분들을 모시고 출판기념회를 개최하게 되어 기쁜 마음으로 초대드립니다. 바쁘신 중에도 함께 자리해 주시어 이 뜻깊은 시간을 나누어 주시기 바랍니다.",
   eventBtn: ["이메일로", "문의하기"],
@@ -96,7 +96,7 @@ const EN: Content = {
   hero: "A deeply reflective memoir where life, memory, suffering, and gratitude flow together as one continuous journey.",
   eventLabel: "📢 Book Launch Event",
   eventTitle: "My Mysterious Rivers Book Launch",
-  eventDate: "Date: May 23, 2025 (Sat) 12:00 PM\nVenue: DMOS MANOR (Flushing)\nAddress: 150-24 Northern Blvd, Flushing, NY 11354\nPhone: 212-871-6781",
+  eventDate: "Date: May 23, 2026 (Sat) 12:00 PM\nVenue: DMOS MANOR (Flushing)\nAddress: 150-24 Northern Blvd, Flushing, NY 11354\nPhone: 212-871-6781",
   eventDesc:
     "We are delighted to invite you to the book launch celebration. We would be deeply honored by your presence at this meaningful occasion.",
   eventBtn: ["Contact by", "Email"],
