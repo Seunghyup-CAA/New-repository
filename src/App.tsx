@@ -167,14 +167,7 @@ export default function MyMysticalRiverWebsite() {
       <section className="bg-teal-800 px-6 py-10 text-white md:px-10">
         <div className="mx-auto max-w-6xl">
           <div className="inline-flex rounded-full border border-white/30 px-3 py-1 text-2xl font-bold">{t.badge}</div>
-          {isKo && (
-            <div
-              className="mt-4 text-lg tracking-[0.12em] text-[#e7d9a8]"
-              style={{ fontVariant: "small-caps", textTransform: "lowercase" }}
-            >
-              my mystical rivers
-            </div>
-          )}
+          
           <h1 className="mt-2 text-3xl font-bold md:text-5xl">{t.title}</h1>
           <p className={`mt-3 text-xl md:text-2xl ${!isKo ? "italic opacity-90" : ""}`}>{t.subtitle}</p>
           <p className="mt-4 max-w-3xl text-base leading-7 text-white/90 md:text-lg">{t.hero}</p>
