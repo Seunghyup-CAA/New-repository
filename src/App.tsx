@@ -51,7 +51,7 @@ const KO: Content = {
   hero: "삶과 기억, 고통과 감사가 하나의 흐름으로 이어지는 자전에세이",
   eventLabel: "📢 출판기념회 안내",
   eventTitle: "『신비로운 강들』 출판기념회",
-  eventDate: "일시: 5월 31일, 2026 (일요일) 오후 3시\n장소: 디모스연회장 (플러싱)\n주소: 150-24 Northern Blvd, Flushing, NY 11354\n전화: 212-871-6781",
+  eventDate: "일시: 2026년 5월 31일 (일요일) 오후 3시\n장소: 디모스연회장 (플러싱)\n주소: 150-24 Northern Blvd, Flushing, NY 11354\n전화: 212-871-6781",
   eventDesc:
     "소중한 분들을 모시고 출판기념회를 개최하게 되어 기쁜 마음으로 초대드립니다. 바쁘신 중에도 함께 자리해 주시어 이 뜻깊은 시간을 나누어 주시기 바랍니다.",
   eventBtn: ["이메일로", "문의하기"],
@@ -166,7 +166,7 @@ export default function MyMysticalRiverWebsite() {
 
       <section className="bg-teal-800 px-6 py-10 text-white md:px-10">
         <div className="mx-auto max-w-6xl">
-          <div className="inline-flex rounded-full border border-white/30 px-3 py-1 text-xs">{t.badge}</div>
+          <div className="inline-flex rounded-full border border-white/30 px-3 py-1 text-2xl font-bold">{t.badge}</div>
           {isKo && (
             <div
               className="mt-4 text-lg tracking-[0.12em] text-[#e7d9a8]"
