@@ -64,7 +64,7 @@ const KO: Content = {
     "이 모든 것을 관통하는 하나의 빛나는 통찰이 있다: 고통을 감사로 받아들이면 그것이 강이 되고, 그 강이 빛이 된다는 것. 남강과 허드슨, 어머니와 아버지, 슬픔과 희망이 이 책 안에서 함께 흐르다가, 마침내 두 강이 아니라 하나의 강이 된다.",
   ],
   more: "자세히 보기",
-  buy: "Amazon 구매",
+  buy: "교보문고 구매",
   contact: "문의하기",
   toc: "목차",
   tocItems: [
@@ -86,7 +86,7 @@ const KO: Content = {
   ],
   moreAuthor: "자세히 보기",
   footerTitle: "구매 및 문의",
-  footerDesc: "아래 버튼을 통해 Amazon 구매 페이지로 이동하거나 이메일로 문의할 수 있습니다.",
+  footerDesc: "아래 버튼을 통해 교보문고 구매 페이지로 이동하거나 이메일로 문의할 수 있습니다.",
 };
 
 const EN: Content = {
@@ -144,7 +144,7 @@ export default function MyMysticalRiverWebsite() {
   const t = isKo ? KO : EN;
 
   const amazonLink = isKo
-    ? "https://www.amazon.com/dp/B0GTHL9C3D?ref=ppx_yo2ov_dt_b_fed_asin_title"
+    ? "https://product.kyobobook.co.kr/detail/S000219789859"
     : "https://www.amazon.com/dp/B0GR1Q2B2Z";
 
   return (
@@ -172,24 +172,6 @@ export default function MyMysticalRiverWebsite() {
           <p className={`mt-3 text-xl md:text-2xl ${!isKo ? "italic opacity-90" : ""}`}>{t.subtitle}</p>
           <p className="mt-4 max-w-3xl text-base leading-7 text-white/90 md:text-lg">{t.hero}</p>
           {!isKo && <div className="mt-3 text-sm tracking-[0.08em] text-white/80">by Soon Wan Hong</div>}
-        </div>
-      </section>
-
-      <section className="px-6 py-6 md:px-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 rounded-2xl border border-[#e7d9a8] bg-[#fff8e6] p-5 md:flex-row md:items-center">
-          <div>
-            <div className="text-4xl font-bold tracking-wide text-teal-800">{t.eventLabel}</div>
-            <div className="mt-1 text-xl font-bold">{t.eventTitle}</div>
-            {t.eventDate && <div className="mt-2 text-slate-700 whitespace-pre-line">{t.eventDate}</div>}
-            <div className="mt-1 leading-7 text-slate-600">{t.eventDesc}</div>
-          </div>
-          <a
-            href="mailto:swanvive0@gmail.com"
-            className="inline-flex min-h-[78px] min-w-[92px] flex-col items-center justify-center rounded-xl border border-[#e7d9a8] bg-white px-3 py-2 text-center text-[12px] font-semibold leading-5 text-[#0f4c5c] shadow-sm"
-          >
-            <span>{t.eventBtn[0]}</span>
-            <span>{t.eventBtn[1]}</span>
-          </a>
         </div>
       </section>
 
