@@ -175,24 +175,6 @@ export default function MyMysticalRiverWebsite() {
         </div>
       </section>
 
-      <section className="px-6 py-6 md:px-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 rounded-2xl border border-[#e7d9a8] bg-[#fff8e6] p-5 md:flex-row md:items-center">
-          <div>
-            <div className="text-4xl font-bold tracking-wide text-teal-800">{t.eventLabel}</div>
-            <div className="mt-1 text-xl font-bold">{t.eventTitle}</div>
-            {t.eventDate && <div className="mt-2 text-slate-700 whitespace-pre-line">{t.eventDate}</div>}
-            <div className="mt-1 leading-7 text-slate-600">{t.eventDesc}</div>
-          </div>
-          <a
-            href="mailto:swanvive0@gmail.com"
-            className="inline-flex min-h-[78px] min-w-[92px] flex-col items-center justify-center rounded-xl border border-[#e7d9a8] bg-white px-3 py-2 text-center text-[12px] font-semibold leading-5 text-[#0f4c5c] shadow-sm"
-          >
-            <span>{t.eventBtn[0]}</span>
-            <span>{t.eventBtn[1]}</span>
-          </a>
-        </div>
-      </section>
-
       <section className="px-6 py-4 md:px-10">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 rounded-[28px] bg-white p-6 shadow md:grid-cols-[280px_minmax(0,1fr)] md:p-8">
           <div className="text-center">
